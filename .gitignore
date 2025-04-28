@@ -10,6 +10,7 @@ node_modules/
 
 # Build output
 .next/
+dist/
 out/
 
 # Static files
@@ -32,3 +33,6 @@ out/
 # OS generated files
 Thumbs.db
 .DS_Store
+
+# generated types
+.astro/
