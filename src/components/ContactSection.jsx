@@ -54,7 +54,7 @@ export default function ContactSection() {
                   <PhoneIcon aria-hidden="true" className="h-7 w-6 text-gray-400" />
                 </dt>
                 <dd>
-                  <a href="tel:+1 (555) 234-5678" className="hover:text-gray-900">
+                  <a href="tel:+15552345678" className="hover:text-gray-900">
                     +1 (555) 234-5678
                   </a>
                 </dd>
