@@ -1,5 +1,9 @@
 ---
-import Welcome from '../components/Welcome.astro';
+import AboutSection from '../components/AboutSection.jsx';
+import ContactSection from '../components/ContactSection.jsx';
+import Footer from '../components/Footer.jsx';
+import Header from '../components/Header.jsx';
+import HeroSection from '../components/HeroSection.jsx';
 import Layout from '../layouts/Layout.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
@@ -7,5 +11,9 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<Welcome />
+	<Header />
+	<HeroSection />
+	<AboutSection />
+	<ContactSection />
+	<Footer />
 </Layout>
