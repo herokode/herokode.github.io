@@ -341,7 +341,8 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const formData = new FormData(this);
+            var status = document.getElementById('contactFormStatus');
+            const formData = new FormData(e.target);
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             
@@ -349,29 +350,77 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                // Show success message
-                const successMessage = document.createElement('div');
-                successMessage.innerHTML = `
-                    <div style="background: rgba(var(--color-success-rgb), 0.1); border: 1px solid var(--color-success); color: var(--color-success); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;">
-                        <strong>Thank you for your message!</strong><br>
-                        We'll get back to you within 24 hours to discuss your project.
-                    </div>
-                `;
+            // Submit form
+            fetch(e.target.action, {
+                method: contactForm.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // Create success message using structured elements
+                    const successDiv = document.createElement('div');
+                    successDiv.classList.add('status', 'status--success');
+                    
+                    const strongElement = document.createElement('strong');
+                    strongElement.textContent = 'Thank you for your message!';
+                    
+                    const brElement = document.createElement('br');
+                    
+                    const messageText = document.createTextNode("We'll get back to you within 24 hours to discuss your project.");
+                    
+                    successDiv.appendChild(strongElement);
+                    successDiv.appendChild(brElement);
+                    successDiv.appendChild(messageText);
+                    
+                    // Clear previous status and add new one
+                    status.textContent = '';
+                    status.appendChild(successDiv);
+                    
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    contactForm.reset();
+                }
+                else {
+                    response.json().then(data => {
+                        // Create error message using structured elements
+                        const errorDiv = document.createElement('div');
+                        errorDiv.classList.add('status', 'status--error');
+                        
+                        const strongElement = document.createElement('strong');
+                        strongElement.textContent = 'Error: ';
+                        
+                        const errorText = document.createTextNode(data.error || 'Failed to send message');
+                        
+                        errorDiv.appendChild(strongElement);
+                        errorDiv.appendChild(errorText);
+                        
+                        // Clear previous status and add new one
+                        status.textContent = '';
+                        status.appendChild(errorDiv);
+                    });
+                }
+            }).catch(error => {
+                // Create error message using structured elements
+                const errorDiv = document.createElement('div');
+                errorDiv.style.cssText = 'background: rgba(var(--color-error-rgb), 0.1); border: 1px solid var(--color-error); color: var(--color-error); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;';
                 
-                this.appendChild(successMessage);
-                this.reset();
+                const strongElement = document.createElement('strong');
+                strongElement.textContent = 'Error: ';
                 
-                // Reset button
+                const errorText = document.createTextNode(error.message || 'Failed to send message');
+                
+                errorDiv.appendChild(strongElement);
+                errorDiv.appendChild(errorText);
+                
+                // Clear previous status and add new one
+                status.textContent = '';
+                status.appendChild(errorDiv);
+                
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
-                
-                // Remove success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.remove();
-                }, 5000);
-            }, 1500);
+            });
         });
     }
 });
