@@ -361,7 +361,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     // Create success message using structured elements
                     const successDiv = document.createElement('div');
-                    successDiv.style.cssText = 'background: rgba(var(--color-success-rgb), 0.1); border: 1px solid var(--color-success); color: var(--color-success); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;';
+                    successDiv.classList.add('status', 'status--success');
                     
                     const strongElement = document.createElement('strong');
                     strongElement.textContent = 'Thank you for your message!';
@@ -386,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     response.json().then(data => {
                         // Create error message using structured elements
                         const errorDiv = document.createElement('div');
-                        errorDiv.style.cssText = 'background: rgba(var(--color-error-rgb), 0.1); border: 1px solid var(--color-error); color: var(--color-error); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;';
+                        errorDiv.classList.add('status', 'status--error');
                         
                         const strongElement = document.createElement('strong');
                         strongElement.textContent = 'Error: ';
