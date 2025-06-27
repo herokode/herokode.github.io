@@ -341,7 +341,8 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const formData = new FormData(this);
+            var status = document.getElementById('contactFormStatus');
+            const formData = new FormData(e.target);
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             
@@ -349,29 +350,41 @@ document.addEventListener('DOMContentLoaded', () => {
             submitBtn.textContent = 'Sending...';
             submitBtn.disabled = true;
             
-            // Simulate form submission (replace with actual form handling)
-            setTimeout(() => {
-                // Show success message
-                const successMessage = document.createElement('div');
-                successMessage.innerHTML = `
-                    <div style="background: rgba(var(--color-success-rgb), 0.1); border: 1px solid var(--color-success); color: var(--color-success); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;">
-                        <strong>Thank you for your message!</strong><br>
-                        We'll get back to you within 24 hours to discuss your project.
+            // Submit form
+            fetch(e.target.action, {
+                method: contactForm.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = `
+                        <div style="background: rgba(var(--color-success-rgb), 0.1); border: 1px solid var(--color-success); color: var(--color-success); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;">
+                            <strong>Thank you for your message!</strong><br>
+                            We'll get back to you within 24 hours to discuss your project.
+                        </div>
+                    `;
+                    formData.reset();
+                }
+                else {
+                    response.json().then(data => {
+                        status.innerHTML = `
+                            <div style="background: rgba(var(--color-error-rgb), 0.1); border: 1px solid var(--color-error); color: var(--color-error); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;">
+                                <strong>Error:</strong> ${data.error || 'Failed to send message'}
+                            </div>
+                        `;
+                    });
+                }
+            }).catch(error => {
+                status.innerHTML = `
+                    <div style="background: rgba(var(--color-error-rgb), 0.1); border: 1px solid var(--color-error); color: var(--color-error); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;">
+                        <strong>Error:</strong> ${error.message || 'Failed to send message'}
                     </div>
                 `;
-                
-                this.appendChild(successMessage);
-                this.reset();
-                
-                // Reset button
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                
-                // Remove success message after 5 seconds
-                setTimeout(() => {
-                    successMessage.remove();
-                }, 5000);
-            }, 1500);
+            });
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
         });
     }
 });
