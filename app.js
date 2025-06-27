@@ -359,32 +359,68 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }).then(response => {
                 if (response.ok) {
-                    status.innerHTML = `
-                        <div style="background: rgba(var(--color-success-rgb), 0.1); border: 1px solid var(--color-success); color: var(--color-success); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;">
-                            <strong>Thank you for your message!</strong><br>
-                            We'll get back to you within 24 hours to discuss your project.
-                        </div>
-                    `;
-                    formData.reset();
+                    // Create success message using structured elements
+                    const successDiv = document.createElement('div');
+                    successDiv.style.cssText = 'background: rgba(var(--color-success-rgb), 0.1); border: 1px solid var(--color-success); color: var(--color-success); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;';
+                    
+                    const strongElement = document.createElement('strong');
+                    strongElement.textContent = 'Thank you for your message!';
+                    
+                    const brElement = document.createElement('br');
+                    
+                    const messageText = document.createTextNode("We'll get back to you within 24 hours to discuss your project.");
+                    
+                    successDiv.appendChild(strongElement);
+                    successDiv.appendChild(brElement);
+                    successDiv.appendChild(messageText);
+                    
+                    // Clear previous status and add new one
+                    status.textContent = '';
+                    status.appendChild(successDiv);
+                    
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    contactForm.reset();
                 }
                 else {
                     response.json().then(data => {
-                        status.innerHTML = `
-                            <div style="background: rgba(var(--color-error-rgb), 0.1); border: 1px solid var(--color-error); color: var(--color-error); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;">
-                                <strong>Error:</strong> ${data.error || 'Failed to send message'}
-                            </div>
-                        `;
+                        // Create error message using structured elements
+                        const errorDiv = document.createElement('div');
+                        errorDiv.style.cssText = 'background: rgba(var(--color-error-rgb), 0.1); border: 1px solid var(--color-error); color: var(--color-error); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;';
+                        
+                        const strongElement = document.createElement('strong');
+                        strongElement.textContent = 'Error: ';
+                        
+                        const errorText = document.createTextNode(data.error || 'Failed to send message');
+                        
+                        errorDiv.appendChild(strongElement);
+                        errorDiv.appendChild(errorText);
+                        
+                        // Clear previous status and add new one
+                        status.textContent = '';
+                        status.appendChild(errorDiv);
                     });
                 }
             }).catch(error => {
-                status.innerHTML = `
-                    <div style="background: rgba(var(--color-error-rgb), 0.1); border: 1px solid var(--color-error); color: var(--color-error); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;">
-                        <strong>Error:</strong> ${error.message || 'Failed to send message'}
-                    </div>
-                `;
+                // Create error message using structured elements
+                const errorDiv = document.createElement('div');
+                errorDiv.style.cssText = 'background: rgba(var(--color-error-rgb), 0.1); border: 1px solid var(--color-error); color: var(--color-error); padding: 16px; border-radius: 8px; margin-top: 16px; text-align: center;';
+                
+                const strongElement = document.createElement('strong');
+                strongElement.textContent = 'Error: ';
+                
+                const errorText = document.createTextNode(error.message || 'Failed to send message');
+                
+                errorDiv.appendChild(strongElement);
+                errorDiv.appendChild(errorText);
+                
+                // Clear previous status and add new one
+                status.textContent = '';
+                status.appendChild(errorDiv);
+                
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
             });
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
         });
     }
 });
