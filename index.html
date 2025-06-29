@@ -9,276 +9,580 @@
     gtag('js', new Date());
 
     gtag('config', 'G-DQ269S54XN');
-</script>
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Herokode LLC - Cloud Consulting for SMB Technology Transformation</title>
     <meta name="description" content="Herokode delivers accessible cloud solutions, AI automation, and custom app development that drive real results for small and medium businesses.">
-    <link rel="stylesheet" href="style.css">
+    <meta name="keywords" content="cloud migration, AI automation, custom app development, SMB technology, cloud consulting">
+    <meta name="author" content="Herokode LLC">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind-config.js"></script>
+    
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="font-sans text-secondary-700 bg-white">
     <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <div class="nav__brand">
-                    <h2 class="nav__logo">Herokode</h2>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-secondary-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <h2 class="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">
+                        Herokode
+                    </h2>
                 </div>
-                <div class="nav__menu" id="navMenu">
-                    <a href="#home" class="nav__link">Home</a>
-                    <a href="#services" class="nav__link">Services</a>
-                    <a href="#about" class="nav__link">About</a>
-                    <a href="#contact" class="nav__link">Contact</a>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="text-secondary-600 hover:text-primary-600 font-medium transition-colors duration-200">Home</a>
+                    <a href="#services-header" class="text-secondary-600 hover:text-primary-600 font-medium transition-colors duration-200">Services</a>
+                    <a href="#about-header" class="text-secondary-600 hover:text-primary-600 font-medium transition-colors duration-200">About</a>
+                    <a href="#contact" class="text-secondary-600 hover:text-primary-600 font-medium transition-colors duration-200">Contact</a>
                 </div>
-                <div class="nav__actions">
-                    <button class="btn btn--primary btn--sm">Get Started</button>
+                
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <button class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl" onclick="document.getElementById('contact').scrollIntoView()">
+                        Get Started
+                    </button>
                 </div>
-                <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                
+                <!-- Mobile Menu Button -->
+                <button class="lg:hidden p-2 rounded-md text-secondary-600 hover:text-primary-600 hover:bg-secondary-100 transition-colors duration-200" id="navToggle" aria-label="Toggle navigation">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
                 </button>
             </nav>
+            
+            <!-- Mobile Navigation -->
+            <div class="lg:hidden hidden" id="navMenu">
+                <div class="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-secondary-200">
+                    <a href="#home" class="block px-3 py-2 text-secondary-600 hover:text-primary-600 hover:bg-secondary-50 rounded-md font-medium transition-colors duration-200">Home</a>
+                    <a href="#services-header" class="block px-3 py-2 text-secondary-600 hover:text-primary-600 hover:bg-secondary-50 rounded-md font-medium transition-colors duration-200">Services</a>
+                    <a href="#about-header" class="block px-3 py-2 text-secondary-600 hover:text-primary-600 hover:bg-secondary-50 rounded-md font-medium transition-colors duration-200">About</a>
+                    <a href="#contact" class="block px-3 py-2 text-secondary-600 hover:text-primary-600 hover:bg-secondary-50 rounded-md font-medium transition-colors duration-200">Contact</a>
+                    <div class="px-3 py-2">
+                        <button class="w-full bg-primary-600 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200" onclick="document.getElementById('contact').scrollIntoView()">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero__content">
-                <h1 class="hero__title">Empower Your SMB to Compete with Enterprise-Grade Technology</h1>
-                <p class="hero__subtitle">We deliver accessible cloud solutions, AI automation, and custom app development that drive real results for small and medium businesses</p>
-                <div class="hero__actions">
-                    <button class="btn btn--primary btn--lg" onclick="document.getElementById('calculator').scrollIntoView()">Free Cloud Assessment</button>
-                    <button class="btn btn--outline btn--lg" onclick="document.getElementById('case-studies').scrollIntoView()">See Our Work</button>
+    <section class="pt-24 lg:pt-32 pb-16 lg:pb-24 bg-gradient-to-br from-secondary-50 via-white to-primary-50 relative overflow-hidden" id="home">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute -top-40 -right-40 w-80 h-80 bg-primary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"></div>
+            <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float" style="animation-delay: 1s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="animate-fade-in">
+                    <h1 class="text-4xl lg:text-6xl xl:text-7xl font-bold text-secondary-900 mb-6 leading-tight">
+                        <span class="bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">
+                            AWS Cloud Architects
+                        </span>
+                        <br>Deliver Enterprise Solutions<br>
+                        <span class="text-3xl lg:text-4xl xl:text-5xl text-secondary-700">for SMB Budgets</span>
+                    </h1>
+                    
+                    <p class="text-xl lg:text-2xl text-secondary-600 mb-8 leading-relaxed max-w-3xl mx-auto">
+                        Our team of certified AWS cloud architects brings enterprise-level expertise to small and medium businesses, delivering scalable cloud solutions, AI automation, and custom applications that drive measurable results
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-slide-up">
+                        <button class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl" onclick="document.getElementById('contact').scrollIntoView()">
+                            Get Free Consultation
+                        </button>
+                        <button class="border-2 border-secondary-300 hover:border-primary-600 text-secondary-700 hover:text-primary-600 px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 bg-white hover:bg-secondary-50" onclick="document.getElementById('case-studies').scrollIntoView()">
+                            See Our Work
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Trust Indicators -->
+                <div class="mt-16 pt-8 border-t border-secondary-200">
+                    <div class="flex flex-wrap justify-center items-center gap-8 text-secondary-500">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="font-medium">AWS Certified Architects</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="font-medium">60+ Successful Projects</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span class="font-medium">Enterprise-Grade Solutions</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="container">
-            <div class="section-header">
-                <h2>Transform Your Business with Proven Solutions</h2>
-                <p>We specialize in delivering enterprise-grade technology solutions designed specifically for SMB budgets and requirements</p>
+    <section class="py-20 lg:py-32 bg-white" id="services">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-5xl font-bold text-secondary-900 mb-6" id="services-header">
+                    Transform Your Business with 
+                    <span class="bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">
+                        Proven Solutions
+                    </span>
+                </h2>
+                <p class="text-xl text-secondary-600 leading-relaxed">
+                    Our certified AWS cloud architects deliver enterprise-grade technology solutions designed specifically for SMB budgets and requirements
+                </p>
             </div>
-            <div class="services__grid">
-                <div class="service-card">
-                    <div class="service-card__icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cloud Migration Card -->
+                <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-secondary-100 hover:border-primary-200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/>
                         </svg>
                     </div>
-                    <h3 class="service-card__title">Cloud Migration & Optimization</h3>
-                    <p class="service-card__subtitle">Seamless transition to scalable cloud infrastructure</p>
-                    <ul class="service-card__features">
-                        <li>AWS/Azure migration</li>
-                        <li>Cost optimization</li>
-                        <li>Security hardening</li>
-                        <li>Performance monitoring</li>
+                    
+                    <h3 class="text-2xl font-bold text-secondary-900 mb-4">AWS Cloud Migration & Optimization</h3>
+                    <p class="text-secondary-600 mb-6 leading-relaxed">Seamless transition to AWS cloud infrastructure with certified architect guidance, cost optimization, and security hardening</p>
+                    
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-secondary-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>AWS certified architects</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-secondary-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Cost optimization</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-secondary-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Security hardening</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-secondary-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Performance monitoring</span>
+                        </li>
                     </ul>
-                    <div class="service-card__pricing">Starting at $499/month</div>
+                    
+                    <div class="text-primary-600 font-semibold text-lg">Starting at $499/month</div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-card__icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <!-- AI Chatbots Card -->
+                <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-secondary-100 hover:border-primary-200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
                             <line x1="8" y1="21" x2="16" y2="21"/>
                             <line x1="12" y1="17" x2="12" y2="21"/>
                         </svg>
                     </div>
-                    <h3 class="service-card__title">AI Chatbots & Automation</h3>
-                    <p class="service-card__subtitle">Intelligent customer support and workflow automation</p>
-                    <ul class="service-card__features">
-                        <li>NLP integration</li>
-                        <li>CRM connectivity</li>
-                        <li>Sentiment analysis</li>
-                        <li>24/7 support</li>
+                    
+                    <h3 class="text-2xl font-bold text-secondary-900 mb-4">AI Chatbots & Automation</h3>
+                    <p class="text-secondary-600 mb-6 leading-relaxed">Intelligent customer support and workflow automation powered by advanced AI technology</p>
+                    
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-secondary-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>NLP integration</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-secondary-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>CRM connectivity</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-secondary-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Sentiment analysis</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-secondary-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>24/7 support</span>
+                        </li>
                     </ul>
-                    <div class="service-card__pricing">Pay-as-you-scale pricing</div>
+                    
+                    <div class="text-primary-600 font-semibold text-lg">Pay-as-you-scale pricing</div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-card__icon">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <!-- Custom Development Card -->
+                <div class="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-secondary-100 hover:border-primary-200">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <polyline points="16 18 22 12 16 6"/>
                             <polyline points="8 6 2 12 8 18"/>
                         </svg>
                     </div>
-                    <h3 class="service-card__title">Custom App Development</h3>
-                    <p class="service-card__subtitle">Tailored solutions that grow with your business</p>
-                    <ul class="service-card__features">
-                        <li>Cross-platform development</li>
-                        <li>API integrations</li>
-                        <li>MVP to enterprise</li>
-                        <li>Ongoing support</li>
+                    
+                    <h3 class="text-2xl font-bold text-secondary-900 mb-4">Custom App Development</h3>
+                    <p class="text-secondary-600 mb-6 leading-relaxed">Tailored solutions that grow with your business, from MVP to enterprise applications</p>
+                    
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-center gap-3 text-secondary-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Cross-platform development</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-secondary-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>API integrations</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-secondary-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>MVP to enterprise</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-secondary-700">
+                            <svg class="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>Ongoing support</span>
+                        </li>
                     </ul>
-                    <div class="service-card__pricing">Flexible project-based pricing</div>
+                    
+                    <div class="text-primary-600 font-semibold text-lg">Flexible project-based pricing</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Process Section -->
-    <section class="process" id="about">
-        <div class="container">
-            <div class="section-header">
-                <h2>Our Hands-On, Consultative Approach</h2>
-                <p>We work closely with you every step of the way to ensure optimal results and cost efficiency</p>
+    <section class="py-20 lg:py-32 bg-gradient-to-br from-secondary-50 to-white" id="about">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-5xl font-bold text-secondary-900 mb-6" id="about-header">
+                    Our Hands-On, 
+                    <span class="bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">
+                        Consultative Approach
+                    </span>
+                </h2>
+                <p class="text-xl text-secondary-600 leading-relaxed">
+                    We work closely with you every step of the way to ensure optimal results and cost efficiency
+                </p>
             </div>
-            <div class="process__steps">
-                <div class="process-step">
-                    <div class="process-step__number">1</div>
-                    <h3 class="process-step__title">Discover</h3>
-                    <p class="process-step__description">We analyze your current technology and business goals</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-step__number">2</div>
-                    <h3 class="process-step__title">Design</h3>
-                    <p class="process-step__description">We create a tailored roadmap optimizing scope and costs</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-step__number">3</div>
-                    <h3 class="process-step__title">Develop</h3>
-                    <p class="process-step__description">We implement solutions with minimal disruption to your operations</p>
-                </div>
-                <div class="process-step">
-                    <div class="process-step__number">4</div>
-                    <h3 class="process-step__title">Deliver</h3>
-                    <p class="process-step__description">We provide ongoing support and optimization</p>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="hidden lg:block absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-primary-200 via-primary-400 to-primary-200"></div>
+                
+                <div class="space-y-12 lg:space-y-0">
+                    <!-- Step 1 -->
+                    <div class="relative lg:flex lg:items-center lg:justify-between">
+                        <div class="lg:w-5/12 lg:pr-8">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg border border-secondary-100 hover:shadow-xl transition-shadow duration-300">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                        1
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-secondary-900">Discover</h3>
+                                </div>
+                                <p class="text-secondary-600 leading-relaxed">We analyze your current technology and business goals to understand your unique challenges and opportunities</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Dot -->
+                        <div class="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary-500 rounded-full border-4 border-white shadow-lg"></div>
+                        
+                        <div class="lg:w-5/12 lg:pl-8 lg:mt-0 mt-8">
+                            <!-- Empty space for visual balance -->
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="relative lg:flex lg:items-center lg:justify-between">
+                        <div class="lg:w-5/12 lg:pr-8 lg:mt-0 mt-8">
+                            <!-- Empty space for visual balance -->
+                        </div>
+                        
+                        <!-- Timeline Dot -->
+                        <div class="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary-500 rounded-full border-4 border-white shadow-lg"></div>
+                        
+                        <div class="lg:w-5/12 lg:pl-8">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg border border-secondary-100 hover:shadow-xl transition-shadow duration-300">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                        2
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-secondary-900">Design</h3>
+                                </div>
+                                <p class="text-secondary-600 leading-relaxed">We create a tailored roadmap optimizing scope and costs to deliver maximum value for your investment</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="relative lg:flex lg:items-center lg:justify-between">
+                        <div class="lg:w-5/12 lg:pr-8">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg border border-secondary-100 hover:shadow-xl transition-shadow duration-300">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                        3
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-secondary-900">Develop</h3>
+                                </div>
+                                <p class="text-secondary-600 leading-relaxed">We implement solutions with minimal disruption to your operations, ensuring smooth transitions</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Timeline Dot -->
+                        <div class="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary-500 rounded-full border-4 border-white shadow-lg"></div>
+                        
+                        <div class="lg:w-5/12 lg:pl-8 lg:mt-0 mt-8">
+                            <!-- Empty space for visual balance -->
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 -->
+                    <div class="relative lg:flex lg:items-center lg:justify-between">
+                        <div class="lg:w-5/12 lg:pr-8 lg:mt-0 mt-8">
+                            <!-- Empty space for visual balance -->
+                        </div>
+                        
+                        <!-- Timeline Dot -->
+                        <div class="hidden lg:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-primary-500 rounded-full border-4 border-white shadow-lg"></div>
+                        
+                        <div class="lg:w-5/12 lg:pl-8">
+                            <div class="bg-white rounded-2xl p-8 shadow-lg border border-secondary-100 hover:shadow-xl transition-shadow duration-300">
+                                <div class="flex items-center gap-4 mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                                        4
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-secondary-900">Deliver</h3>
+                                </div>
+                                <p class="text-secondary-600 leading-relaxed">We provide ongoing support and optimization to ensure your technology continues to drive business growth</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Case Studies Section -->
-    <section class="case-studies" id="case-studies">
-        <div class="container">
-            <div class="section-header">
-                <h2>Proven Results for SMBs Like Yours</h2>
-                <p>Real outcomes from our technology transformation projects</p>
+    <section class="py-20 lg:py-32 bg-white" id="case-studies">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-5xl font-bold text-secondary-900 mb-6">
+                    Proven Results for 
+                    <span class="bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">
+                        SMBs Like Yours
+                    </span>
+                </h2>
+                <p class="text-xl text-secondary-600 leading-relaxed">
+                    Real outcomes from our technology transformation projects that drive measurable business impact
+                </p>
             </div>
-            <div class="case-studies__grid">
-                <div class="case-study">
-                    <div class="case-study__metric">37% Cost Reduction</div>
-                    <h4 class="case-study__title">Manufacturing Cost Optimization</h4>
-                    <p class="case-study__description">Reduced AWS costs by 37% for mid-sized manufacturing company</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Case Study 1 -->
+                <div class="group bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-blue-200">
+                    <div class="bg-gradient-to-br from-blue-500 to-blue-600 text-white px-6 py-3 rounded-xl font-bold text-xl mb-6 inline-block">
+                        37% Cost Reduction
+                    </div>
+                    
+                    <h4 class="text-2xl font-bold text-secondary-900 mb-4">Manufacturing Cost Optimization</h4>
+                    <p class="text-secondary-600 leading-relaxed mb-6">
+                        Reduced AWS costs by 37% for mid-sized manufacturing company through strategic cloud optimization and resource management
+                    </p>
+                    
+                    <div class="flex items-center gap-2 text-blue-600 font-medium">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Cloud Migration</span>
+                    </div>
                 </div>
-                <div class="case-study">
-                    <div class="case-study__metric">95% Faster Processing</div>
-                    <h4 class="case-study__title">Trade Compliance Automation</h4>
-                    <p class="case-study__description">Built trade.gov compliance screening app processing 10K suppliers in under 3 minutes</p>
+
+                <!-- Case Study 2 -->
+                <div class="group bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-purple-200">
+                    <div class="bg-gradient-to-br from-purple-500 to-purple-600 text-white px-6 py-3 rounded-xl font-bold text-xl mb-6 inline-block">
+                        95% Faster Processing
+                    </div>
+                    
+                    <h4 class="text-2xl font-bold text-secondary-900 mb-4">Trade Compliance Automation</h4>
+                    <p class="text-secondary-600 leading-relaxed mb-6">
+                        Built trade.gov compliance screening app processing 10K suppliers in under 3 minutes, dramatically improving efficiency
+                    </p>
+                    
+                    <div class="flex items-center gap-2 text-purple-600 font-medium">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Custom Development</span>
+                    </div>
                 </div>
-                <div class="case-study">
-                    <div class="case-study__metric">60% Ticket Reduction</div>
-                    <h4 class="case-study__title">Customer Service Automation</h4>
-                    <p class="case-study__description">Implemented chatbot reducing customer service tickets by 60%</p>
+
+                <!-- Case Study 3 -->
+                <div class="group bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-green-200">
+                    <div class="bg-gradient-to-br from-green-500 to-green-600 text-white px-6 py-3 rounded-xl font-bold text-xl mb-6 inline-block">
+                        60% Ticket Reduction
+                    </div>
+                    
+                    <h4 class="text-2xl font-bold text-secondary-900 mb-4">Customer Service Automation</h4>
+                    <p class="text-secondary-600 leading-relaxed mb-6">
+                        Implemented intelligent chatbot reducing customer service tickets by 60% while improving response times and satisfaction
+                    </p>
+                    
+                    <div class="flex items-center gap-2 text-green-600 font-medium">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>AI Automation</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose Herokode Section -->
-    <section class="why-choose">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose Herokode</h2>
-                <p>What sets us apart as your technology transformation partner</p>
+    <section class="py-20 lg:py-32 bg-gradient-to-br from-secondary-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-5xl font-bold text-secondary-900 mb-6">
+                    Why Choose 
+                    <span class="bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">
+                        Herokode
+                    </span>
+                </h2>
+                <p class="text-xl text-secondary-600 leading-relaxed">
+                    What sets us apart as your technology transformation partner
+                </p>
             </div>
-            <div class="differentiators">
-                <div class="differentiator">
-                    <h4>SMB-Focused Expertise</h4>
-                    <p>We understand the unique constraints and opportunities of small and medium businesses</p>
-                </div>
-                <div class="differentiator">
-                    <h4>Cost-Effective Solutions</h4>
-                    <p>Enterprise-grade technology at SMB-friendly pricing</p>
-                </div>
-                <div class="differentiator">
-                    <h4>Hands-On Partnership</h4>
-                    <p>Direct access to senior consultants, not junior staff</p>
-                </div>
-                <div class="differentiator">
-                    <h4>Proven Track Record</h4>
-                    <p><span class="counter" data-target="60">0</span>+ successful projects with measurable ROI</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Interactive Tools Section -->
-    <section class="tools" id="calculator">
-        <div class="container">
-            <div class="tools__grid">
-                <div class="tool-card">
-                    <h3>Cloud Savings Calculator</h3>
-                    <p>Estimate potential cost savings from cloud migration</p>
-                    <div class="calculator">
-                        <div class="form-group">
-                            <label class="form-label">Current Monthly IT Costs</label>
-                            <input type="number" class="form-control" id="currentCosts" placeholder="5000">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Number of Employees</label>
-                            <input type="number" class="form-control" id="employees" placeholder="50">
-                        </div>
-                        <button class="btn btn--primary" onclick="calculateSavings()">Calculate Savings</button>
-                        <div class="calculator__result" id="savingsResult"></div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- AWS Certified Team -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
                     </div>
+                    <h4 class="text-xl font-bold text-secondary-900 mb-3">AWS Certified Team</h4>
+                    <p class="text-secondary-600 leading-relaxed">Our senior cloud architects hold multiple AWS certifications and bring enterprise-level expertise to every project</p>
                 </div>
 
-                <div class="tool-card">
-                    <h3>Technology Readiness Assessment</h3>
-                    <p>Quick 5-question quiz to assess your technology maturity</p>
-                    <div class="assessment" id="assessment">
-                        <div class="assessment__question">
-                            <p>How would you rate your current cloud adoption?</p>
-                            <div class="assessment__options">
-                                <label><input type="radio" name="q1" value="1"> No cloud usage</label>
-                                <label><input type="radio" name="q1" value="2"> Basic cloud services</label>
-                                <label><input type="radio" name="q1" value="3"> Moderate cloud integration</label>
-                                <label><input type="radio" name="q1" value="4"> Advanced cloud strategy</label>
-                            </div>
-                        </div>
-                        <button class="btn btn--outline" onclick="startAssessment()">Start Assessment</button>
-                        <div class="assessment__result" id="assessmentResult"></div>
+                <!-- Cost-Effective Solutions -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                        </svg>
                     </div>
+                    <h4 class="text-xl font-bold text-secondary-900 mb-3">Cost-Effective Solutions</h4>
+                    <p class="text-secondary-600 leading-relaxed">Enterprise-grade technology at SMB-friendly pricing with transparent cost structures</p>
+                </div>
+
+                <!-- Hands-On Partnership -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-secondary-900 mb-3">Direct Expert Access</h4>
+                    <p class="text-secondary-600 leading-relaxed">Work directly with senior AWS architects, not junior staff, ensuring quality delivery and strategic guidance</p>
+                </div>
+
+                <!-- Proven Track Record -->
+                <div class="text-center group">
+                    <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-secondary-900 mb-3">Proven Track Record</h4>
+                    <p class="text-secondary-600 leading-relaxed">
+                        <span class="counter text-2xl font-bold text-primary-600" data-target="60">0</span>+ successful cloud migrations with measurable ROI
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Start Your Technology Transformation</h2>
-                <p>Get a free 30-minute consultation to discuss your specific needs</p>
+    <section class="py-20 lg:py-32 bg-gradient-to-br from-secondary-50 to-white" id="contact">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl lg:text-5xl font-bold text-secondary-900 mb-6">
+                    Start Your Technology 
+                    <span class="bg-gradient-to-r from-primary-600 to-primary-700 bg-clip-text text-transparent">
+                        Transformation
+                    </span>
+                </h2>
+                <p class="text-xl text-secondary-600 leading-relaxed">
+                    Get a free 30-minute consultation to discuss your specific needs and explore solutions
+                </p>
             </div>
-            <div class="contact__content">
-                <div class="contact__form">
-                    <form id="contactForm" action="https://formspree.io/f/meokvzgk" method="POST">
-                        <div class="form-group">
-                            <label class="form-label">Name *</label>
-                            <input type="text" class="form-control" name="name" required>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg border border-secondary-100">
+                    <form id="contactForm" action="https://formspree.io/f/meokvzgk" method="POST" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-secondary-700 mb-2">Name *</label>
+                                <input type="text" class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200" name="name" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-secondary-700 mb-2">Email *</label>
+                                <input type="email" class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200" name="email" required>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Email *</label>
-                            <input type="email" class="form-control" name="email" required>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-secondary-700 mb-2">Company</label>
+                                <input type="text" class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200" name="company">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-secondary-700 mb-2">Phone</label>
+                                <input type="tel" class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200" name="phone">
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Company</label>
-                            <input type="text" class="form-control" name="company">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Phone</label>
-                            <input type="tel" class="form-control" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label">Project Type</label>
-                            <select class="form-control" name="projectType">
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-secondary-700 mb-2">Project Type</label>
+                            <select class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200" name="projectType">
                                 <option value="">Select a service</option>
                                 <option value="cloud">Cloud Migration & Optimization</option>
                                 <option value="ai">AI Chatbots & Automation</option>
@@ -286,28 +590,48 @@
                                 <option value="consultation">General Consultation</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label">Message</label>
-                            <textarea class="form-control" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold text-secondary-700 mb-2">Message</label>
+                            <textarea class="w-full px-4 py-3 border border-secondary-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200" name="message" rows="4" placeholder="Tell us about your project..."></textarea>
                         </div>
-                        <button type="submit" class="btn btn--primary btn--full-width">Send Message</button>
-                        <p id="contactFormStatus" aria-live="polite"></p>
+                        
+                        <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white py-4 px-8 rounded-lg font-semibold text-lg transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                            Send Message
+                        </button>
+                        
+                        <div id="contactFormStatus" aria-live="polite"></div>
                     </form>
                 </div>
-                <div class="contact__info">
-                    <div class="contact-info">
-                        <h4>Get in Touch</h4>
-                        <div class="contact-info__item">
-                            <strong>Email:</strong>
-                            <a href="mailto:hello@herokode.com">hello@herokode.com</a>
+                
+                <!-- Contact Info -->
+                <div class="bg-gradient-to-br from-primary-50 to-primary-100 rounded-2xl p-8 shadow-lg border border-primary-200">
+                    <div class="mb-8">
+                        <h4 class="text-2xl font-bold text-secondary-900 mb-6">Get in Touch</h4>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 bg-primary-600 rounded-xl flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm font-semibold text-secondary-600">Email</p>
+                                    <a href="mailto:hello@herokode.com" class="text-primary-600 hover:text-primary-700 font-medium">hello@herokode.com</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="contact-info__item">
-                            <strong>Address:</strong>
-                            <span>336 W 1st St, 113, Flint, MI - 48502</span>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 border border-primary-200">
+                        <div class="flex items-center gap-3 mb-3">
+                            <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                            <h5 class="font-bold text-secondary-900">Free 30-minute consultation</h5>
                         </div>
-                        <div class="contact-info__cta">
-                            <p><strong>Free 30-minute consultation</strong> to discuss your technology transformation needs</p>
-                        </div>
+                        <p class="text-secondary-600">Discuss your technology transformation needs with our experts and explore tailored solutions for your business</p>
                     </div>
                 </div>
             </div>
@@ -315,40 +639,59 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__brand">
-                    <h3>Herokode LLC</h3>
-                    <p>Empowering SMBs with enterprise-grade technology solutions</p>
+    <footer class="bg-secondary-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <!-- Brand -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-2xl font-bold bg-gradient-to-r from-primary-400 to-primary-500 bg-clip-text text-transparent mb-4">
+                        Herokode LLC
+                    </h3>
+                    <p class="text-secondary-300 leading-relaxed mb-6 max-w-md">
+                        Empowering SMBs with enterprise-grade technology solutions that drive real business results and measurable ROI.
+                    </p>
+                    <div class="flex items-center gap-4">
+                        <a href="https://www.linkedin.com/company/herokode/" target="_blank" class="w-10 h-10 bg-secondary-800 hover:bg-primary-600 rounded-lg flex items-center justify-center transition-colors duration-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="footer__links">
-                    <div class="footer__section">
-                        <h4>Services</h4>
-                        <ul>
-                            <li><a href="#services">Cloud Migration</a></li>
-                            <li><a href="#services">AI Automation</a></li>
-                            <li><a href="#services">Custom Development</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__section">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#case-studies">Case Studies</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__section">
-                        <h4>Connect</h4>
-                        <ul>
-                            <li><a href="https://www.linkedin.com/company/herokode/" target="_blank">LinkedIn</a></li>
-                        </ul>
-                    </div>
+                
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-white">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-secondary-300 hover:text-primary-400 transition-colors duration-200">Cloud Migration</a></li>
+                        <li><a href="#services" class="text-secondary-300 hover:text-primary-400 transition-colors duration-200">AI Automation</a></li>
+                        <li><a href="#services" class="text-secondary-300 hover:text-primary-400 transition-colors duration-200">Custom Development</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Company -->
+                <div>
+                    <h4 class="text-lg font-semibold mb-4 text-white">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="text-secondary-300 hover:text-primary-400 transition-colors duration-200">About</a></li>
+                        <li><a href="#case-studies" class="text-secondary-300 hover:text-primary-400 transition-colors duration-200">Case Studies</a></li>
+                        <li><a href="#contact" class="text-secondary-300 hover:text-primary-400 transition-colors duration-200">Contact</a></li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer__bottom">
-                <p>&copy; 2025 Herokode LLC. All rights reserved.</p>
+            
+            <!-- Bottom Bar -->
+            <div class="border-t border-secondary-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-secondary-400 text-sm">
+                        &copy; 2025 Herokode LLC. All rights reserved.
+                    </p>
+                    <div class="flex items-center gap-6 mt-4 md:mt-0">
+                        <a href="mailto:hello@herokode.com" class="text-secondary-400 hover:text-primary-400 text-sm transition-colors duration-200">
+                            hello@herokode.com
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
